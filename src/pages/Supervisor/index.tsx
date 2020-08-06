@@ -1,19 +1,44 @@
 import React from 'react'
-import { Text, Image, TouchableOpacity, View } from 'react-native'
-import styles from './styles'
+import { Text, Image, TouchableOpacity, View, FlatList } from 'react-native'
+import { styles } from './styles'
+import { renderVendedor } from './renderVendedor'
+
+// Temporario
+interface ItemInterface {
+    cod: number,
+    name: string,
+    accomplished: number,
+    image: string
+}
+
+const data:ItemInterface[] = [
+    { "cod": 1515 ,"name": "Luís Antônio", "accomplished": 164543, "image": "https://avatars1.githubusercontent.com/u/35160032?s=460&u=c2fd8dd4d7356247dafc16dc5ac823721b7bc9bd&v=4"},
+    { "cod": 1516 ,"name": "Yuri Vieira", "accomplished": 65409, "image": "https://avatars1.githubusercontent.com/u/35160032?s=460&u=c2fd8dd4d7356247dafc16dc5ac823721b7bc9bd&v=4"},
+]
 
 function Supervisor() {
     return (
-        <TouchableOpacity style={styles.td}>
-            <Text style={styles.position}>1</Text>
+        <View style={styles.container}>
+            <View style={styles.header}>
+                <View style={styles.imageHeaderContainer}>
+                    <Image style={styles.imageHeader} source={{
+                        uri: 'https://scontent-gig2-1.cdninstagram.com/v/t51.2885-19/s150x150/66719531_338580240364931_6633851656125546496_n.jpg?_nc_ht=scontent-gig2-1.cdninstagram.com&_nc_ohc=FJrkRTiSKlwAX_mg62E&oh=4472ab1e3406c43e0bcf8433118c0eaf&oe=5F551E40'
+                    }}/>
+                </View>
 
-            <Image style={styles.image} source={{
-                uri: 'https://avatars1.githubusercontent.com/u/35160032?s=460&u=c2fd8dd4d7356247dafc16dc5ac823721b7bc9bd&v=4'
-            }}/>
+                <Text style={styles.headerTitle}>Edson Carlos</Text>
+                <Text style={styles.headerText}>Meta R$ 13430 | Realizado: R$2435 | 15%</Text>
+            </View> 
 
-            <Text style={styles.name}>Luís Antônio</Text>
-            <Text style={styles.accomplished}>R$ 164,5mil</Text>
-        </TouchableOpacity>
+            <View style={styles.main}>
+                <FlatList
+                    style={styles.list}
+                    data={data}
+                    renderItem={({ item, index }) => renderVendedor(item, index)}
+                    keyExtractor={item => String(item.cod)}
+                />
+            </View>
+        </View>
     )
 }
 

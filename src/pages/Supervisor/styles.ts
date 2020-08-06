@@ -1,40 +1,116 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
-export default StyleSheet.create({
-    td: {
+const primaryColor = '#1b8cff'
+const secondColor = '#66b3ff'
+const white = '#f0f0f0'
+
+const screen_width = Dimensions.get('window').width
+const screen_height = Dimensions.get('window').height
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        width: screen_width
+    },
+
+    header: {
+        width: '95%',
+        height: 200,
+        backgroundColor: primaryColor,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+    },
+
+    imageHeader: {
+        width: 100,
+        height: 100,
+        borderRadius: 50,
+    },
+
+    headerTitle: {
+        fontFamily: 'Roboto_700Bold',
+        fontSize: 28,
+        color: white,
+    },
+
+    headerText: {
+        color: white,
+        fontFamily: 'Roboto_400Regular',
+        fontSize: 16,
+        fontStyle: 'italic'
+    },
+
+    imageHeaderContainer: {
+        width: 105,
+        height: 105,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 7,
+        borderRadius: 60,
         borderWidth: 1,
+        borderColor: '#fff',
+    },
+
+    main: {
+        width: screen_width,
+        alignItems: 'center',
+        marginTop: 7,
+    },
+
+    list: {
+        width: '95%'
+    },
+
+    td: {
         width: '100%',
-        borderColor: '#000',
+        borderWidth: 1,
+        borderColor: '#e1e1e1',
         borderStyle: 'solid',
         borderRadius: 7,
         justifyContent: 'space-around',
         alignItems: 'center',
         flexDirection: 'row',
-        padding: 10
+        padding: 10,
+        fontFamily: 'Roboto_400Regular',
+        marginBottom: 7,
     },
 
     position: {
         fontSize: 16,
-        backgroundColor: 'red'
+        fontFamily: 'Roboto_400Regular',
+        color: primaryColor,
+        alignContent: 'flex-start',
+        width: 20,
+        textAlign: 'center',
+        marginRight: 7
     },
 
     image: {
         width: 50,
         height: 50,
-        borderRadius: 35,
-        backgroundColor: 'green'
+        borderRadius: 25,
+        alignSelf: 'center'
     },
 
     name: {
         fontSize: 16,
-        width: '50%',
+        width: 130,
         flexWrap: 'wrap',
-        backgroundColor: 'blue'
+        fontFamily: 'Roboto_400Regular',
+        color: primaryColor,
+        marginLeft: 7
     },
 
     accomplished: {
         fontSize: 16,
-        backgroundColor: 'yellow'
+        fontFamily: 'Roboto_700Bold',
+        color: primaryColor,
+
+        width: 110
     }
 })
+
+export { styles }
