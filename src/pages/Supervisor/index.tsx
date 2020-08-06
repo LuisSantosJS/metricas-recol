@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, Image, TouchableOpacity, View, FlatList } from 'react-native'
 import { styles } from './styles'
-import { renderVendedor } from './renderVendedor'
+import { Lista } from '../../components/Lista'
 
 // Temporario
 interface ItemInterface {
@@ -13,7 +13,7 @@ interface ItemInterface {
 
 const data:ItemInterface[] = [
     { "cod": 1515 ,"name": "Luís Antônio", "accomplished": 164543, "image": "https://avatars1.githubusercontent.com/u/35160032?s=460&u=c2fd8dd4d7356247dafc16dc5ac823721b7bc9bd&v=4"},
-    { "cod": 1516 ,"name": "Yuri Vieira", "accomplished": 65409, "image": "https://avatars1.githubusercontent.com/u/35160032?s=460&u=c2fd8dd4d7356247dafc16dc5ac823721b7bc9bd&v=4"},
+    { "cod": 1516 ,"name": "Marlon Henrique", "accomplished": 65409, "image": "https://avatars1.githubusercontent.com/u/35160032?s=460&u=c2fd8dd4d7356247dafc16dc5ac823721b7bc9bd&v=4"},
 ]
 
 function Supervisor() {
@@ -31,12 +31,7 @@ function Supervisor() {
             </View> 
 
             <View style={styles.main}>
-                <FlatList
-                    style={styles.list}
-                    data={data}
-                    renderItem={({ item, index }) => renderVendedor(item, index)}
-                    keyExtractor={item => String(item.cod)}
-                />
+                <Lista data={data} />
             </View>
         </View>
     )
