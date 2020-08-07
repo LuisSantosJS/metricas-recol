@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, Image, TouchableOpacity, View, FlatList } from 'react-native'
 import { styles } from './styles'
-import { Lista } from '../../components/Lista'
+import  Lista  from '../../components/Lista'
 
 // Temporario
 interface ItemInterface {
@@ -31,7 +31,8 @@ function Supervisor() {
             </View> 
 
             <View style={styles.main}>
-                <Lista data={data} />
+                <Lista children={data}
+                 />
             </View>
         </View>
     )

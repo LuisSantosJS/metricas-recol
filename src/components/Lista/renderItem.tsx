@@ -1,4 +1,4 @@
-import react from 'react'
+import React from 'react'
 import { TouchableOpacity, Text, Image } from 'react-native'
 import { styles } from './style'
 
